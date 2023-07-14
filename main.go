@@ -13,5 +13,5 @@ func main() {
 
 	fmt.Println(api)
 	apiResponse := apireader.ValidateAPI(apireader.Endpoint(api))
-	apireader.ReadAPI(apireader.Endpoint(apiResponse))
+	apireader.ReadAPI(apiResponse)
 }
