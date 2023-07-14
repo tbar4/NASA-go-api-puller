@@ -1,14 +1,19 @@
 package apireader
 
 import (
+	"encoding/json"
 	"fmt"
-	"net/http"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"os"
 )
 
 type Endpoint string
+
+type Response struct {
+	Copyright string `json:"copyright"`
+}
 
 var apiEndpoint = map[Endpoint]string{
 	"apod": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
@@ -44,6 +49,10 @@ func ReadAPI(url string) []byte {
 	if err != nil {
 		log.Fatal(err)
 	}
+	var responseObject Response
+	json.Unmarshal(responseData, &responseObject)
+
+	fmt.Println(responseObject.Copyright)
 
 	return responseData
 }
