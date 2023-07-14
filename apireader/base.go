@@ -2,13 +2,13 @@ package apireader
 
 import "fmt"
 
-type endpoint string
+type Endpoint string
 
-var apiEndpoint = map[endpoint]string{
+var apiEndpoint = map[Endpoint]string{
 	"apod": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
 }
 
-func ValidateAPI(e endpoint) string {
+func ValidateAPI(e Endpoint) string {
 	// validate that the api endpoint exists
 	endpoint, ok := apiEndpoint[e]
 	if !ok {
@@ -18,6 +18,6 @@ func ValidateAPI(e endpoint) string {
 	return endpoint
 }
 
-func ReadAPI(e endpoint) string {
+func ReadAPI(e Endpoint) string {
 	return "works"
 }

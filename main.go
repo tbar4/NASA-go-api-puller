@@ -12,6 +12,6 @@ func main() {
 	flag.Parse()
 
 	fmt.Println(api)
-	apiResponse := apireader.ValidateAPI(api)
-	apireader.ReadAPI(apiResponse)
+	apiResponse := apireader.ValidateAPI(apireader.Endpoint(api))
+	apireader.ReadAPI(apireader.Endpoint(apiResponse))
 }
